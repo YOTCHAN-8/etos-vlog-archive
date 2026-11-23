@@ -13,7 +13,31 @@
 <title>The Making of etos</title>
 
 <style>
+/* Hamburg Boy floating animation */
 
+.hamburg-boy {
+
+  animation: hamburgFloat 2.4s ease-in-out infinite;
+
+  transform-origin: center center;
+
+}
+
+@keyframes hamburgFloat {
+
+  0%, 100% {
+
+    transform: translateY(0);
+
+  }
+
+  50% {
+
+    transform: translateY(-12px);
+
+  }
+
+}
 * {
 
   box-sizing: border-box;
