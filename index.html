@@ -510,6 +510,124 @@ document.getElementById("backButton").addEventListener("click", () => {
 
 </script>
 
+<audio id="etosBGM" src="etos-bgm.wav" loop preload="auto"></audio>
+
+<button id="soundButton" style="
+
+  position:fixed;
+
+  right:14px;
+
+  bottom:14px;
+
+  z-index:9999;
+
+  padding:10px 14px;
+
+  border:2px solid #173e39;
+
+  border-radius:10px;
+
+  background:#f8edcf;
+
+  color:#173e39;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+">
+
+  ♪ SOUND OFF
+
+</button>
+
+<script>
+
+const bgm = document.getElementById("etosBGM");
+
+const soundButton = document.getElementById("soundButton");
+
+let soundStarted = false;
+
+async function startBGM() {
+
+  if (soundStarted) return;
+
+  try {
+
+    bgm.volume = 0.25;
+
+    await bgm.play();
+
+    soundStarted = true;
+
+    soundButton.textContent = "♪ SOUND ON";
+
+  } catch (error) {
+
+    console.log("BGM playback requires user interaction.");
+
+  }
+
+}
+
+document.addEventListener("pointerdown", (event) => {
+
+  if (!event.target.closest("#soundButton")) {
+
+    startBGM();
+
+  }
+
+}, { once: true });
+
+
+soundButton.addEventListener("click", async (event) => {
+
+  event.stopPropagation();
+
+  if (bgm.paused) {
+
+    try {
+
+      bgm.volume = 0.25;
+
+      await bgm.play();
+
+      soundStarted = true;
+
+      soundButton.textContent = "♪ SOUND ON";
+
+    } catch (error) {
+
+      console.log(error);
+
+    }
+
+  } else {
+
+    bgm.pause();
+
+    soundButton.textContent = "♪ SOUND OFF";
+
+  }
+
+});
+
+document.addEventListener("visibilitychange", () => {
+
+  if (document.hidden) {
+
+    bgm.pause();
+
+    soundButton.textContent = "♪ SOUND OFF";
+
+  }
+
+});
+
+</script>
 </body>
 
 </html>
