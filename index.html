@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#173e39">
+
+<title>The Making of etos</title>
+
+<style>
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+html, body {
+
+  margin: 0;
+
+  min-height: 100%;
+
+  background: #173e39;
+
+  font-family: Arial, sans-serif;
+
+}
+
+body {
+
+  display: flex;
+
+  justify-content: center;
+
+  min-height: 100svh;
+
+  padding: 16px 12px 28px;
+
+}
+
+.screen {
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+.hidden {
+
+  display: none !important;
+
+}
+
+.artwork {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+}
+
+.title-art {
+
+  width: min(100%, 520px);
+
+}
+
+.start-button {
+
+  margin-top: 18px;
+
+  width: min(90%, 360px);
+
+  min-height: 58px;
+
+  border: 4px solid #38291f;
+
+  border-radius: 12px;
+
+  background: #397b72;
+
+  color: #fff1d0;
+
+  font-size: 21px;
+
+  font-weight: 900;
+
+  letter-spacing: 3px;
+
+  box-shadow: 0 6px 0 #241b17;
+
+  cursor: pointer;
+
+  transition: transform 0.1s, box-shadow 0.1s;
+
+}
+
+.start-button:active {
+
+  transform: translateY(4px);
+
+  box-shadow: 0 2px 0 #241b17;
+
+}
+
+.caption {
+
+  color: #f5e5c4;
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+
+  margin-top: 16px;
+
+  text-align: center;
+
+}
+
+.episode-wrap {
+
+  position: relative;
+
+  width: min(100%, 760px);
+
+  line-height: 0;
+
+}
+
+.episode-art {
+
+  width: 100%;
+
+  height: auto;
+
+}
+
+.episode-link {
+
+  position: absolute;
+
+  display: block;
+
+  width: 18.8%;
+
+  height: 13.1%;
+
+  border-radius: 13%;
+
+  background: transparent;
+
+  border: 0;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+
+}
+
+.episode-link:focus-visible {
+
+  outline: 4px solid #fff2a8;
+
+  outline-offset: 2px;
+
+}
+
+.c1 { left: 12.4%; }
+
+.c2 { left: 32.2%; }
+
+.c3 { left: 52.0%; }
+
+.c4 { left: 71.8%; }
+
+.r1 { top: 30.0%; }
+
+.r2 { top: 44.0%; }
+
+.r3 { top: 58.0%; }
+
+.r4 { top: 72.0%; }
+
+.back-button {
+
+  margin-top: 18px;
+
+  padding: 12px 22px;
+
+  border: 3px solid #38291f;
+
+  border-radius: 8px;
+
+  background: #e6c58b;
+
+  color: #38291f;
+
+  font-weight: bold;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+}
+
+@media (max-width: 480px) {
+
+  body {
+
+    padding: 8px 5px 20px;
+
+  }
+
+  .start-button {
+
+    min-height: 54px;
+
+    font-size: 18px;
+
+  }
+
+  .caption {
+
+    font-size: 9px;
+
+  }
+
+  .episode-link {
+
+    height: 13.1%;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- TITLE SCREEN -->
+
+<main id="titleScreen" class="screen">
+
+  <img
+
+    class="artwork title-art"
+
+    src="./title.PNG"
+
+    alt="The Making of etos - Hamburg Boy"
+
+  >
+
+  <button id="startButton" class="start-button">
+
+    ▶ WATCH THE STORY
+
+  </button>
+
+  <div class="caption">
+
+    A STORY OF MAKING A PLACE
+
+  </div>
+
+</main>
+
+<!-- EPISODE SELECT SCREEN -->
+
+<main id="episodeScreen" class="screen hidden">
+
+  <div class="episode-wrap">
+
+    <img
+
+      class="artwork episode-art"
+
+      src="./episode.PNG"
+
+      alt="The Making of etos - Episode Select"
+
+    >
+
+    <!-- EPISODE 01 -->
+
+    <a class="episode-link c1 r1"
+
+       href="https://www.instagram.com/reel/DbGI_9dh37t/?fqnt=MWRueXU1bHU1YWw2bg=="
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 01 A New Beginning"></a>
+
+    <!-- EPISODE 02 -->
+
+    <a class="episode-link c2 r1"
+
+       href="https://www.instagram.com/reel/DbP35GBhUeG/?jplx=MWx2bWh1ZjdiejduNw=="
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 02 Demolition"></a>
+
+    <!-- EPISODE 03 -->
+
+    <a class="episode-link c3 r1"
+
+       href="https://www.instagram.com/reel/DcDhPL7BATP/?fqnt=OGVtbjZkdXp2NHBi"
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 03 Slab Delivery"></a>
+
+    <!-- EPISODE 04 -->
+
+    <a class="episode-link c4 r1"
+
+       href="https://www.instagram.com/reel/DcnpGOoBRI8/?dmpr=ZzU2ZnU3OGdpcDM2"
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 04 Demolition and Framework"></a>
+
+    <!-- EPISODE 05 -->
+
+    <a class="episode-link c1 r2"
+
+       href="https://www.instagram.com/reel/Dc_Evbgh-xn/?hvrq=MXQ4Y2lnb2E5b3I1cg=="
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 05 Building walls and Wallpaper"></a>
+
+    <!-- EPISODE 06 -->
+
+    <a class="episode-link c2 r2"
+
+       href="https://www.instagram.com/reel/DdLkraqBi0l/?avpt=Y3FpNDhncGI2OThz"
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 06 Kitchen Wall"></a>
+
+    <!-- EPISODE 07 -->
+
+    <a class="episode-link c3 r2"
+
+       href="https://www.instagram.com/reel/DdgbbWIBuJR/?bqrl=azJ2OWtob2tla2V1"
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 07 Interior Build and Kitchen Ducts"></a>
+
+    <!-- EPISODE 08 -->
+
+    <a class="episode-link c4 r2"
+
+       href="https://www.instagram.com/reel/DdnauPozLgv/?avpt=MXVncXJnenlwNWMxOA=="
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 08 Leaving the Old Location"></a>
+
+    <!-- EPISODE 09 -->
+
+    <a class="episode-link c1 r3"
+
+       href="https://www.instagram.com/reel/DeEU1VIBlN7/?jplx=MXR4cWw3MGl4M3V4dw=="
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 09 Floor Construction"></a>
+
+    <!-- EPISODE 10 -->
+
+    <a class="episode-link c2 r3"
+
+       href="https://www.instagram.com/reel/DeRpKEEhKZd/?lqvp=MW9kdm1xdWRnaWVseQ=="
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 10 Wall Construction"></a>
+
+    <!-- EPISODE 11 -->
+
+    <a class="episode-link c3 r3"
+
+       href="https://www.instagram.com/reel/Den12k_Bz7U/?avpt=N2xnOXZ5am11cmN5"
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 11 Textured Walls"></a>
+
+    <!-- EPISODE 12 -->
+
+    <a class="episode-link c4 r3"
+
+       href="https://www.instagram.com/reel/De3HeKUBZJp/?dmpr=MTExY2htN284N200cQ=="
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 12 Staining the Wood"></a>
+
+    <!-- EPISODE 13 -->
+
+    <a class="episode-link c1 r4"
+
+       href="https://www.instagram.com/reel/DfCIrg8BSQP/?knvt=MWk5YWxuaW52djNvaw=="
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 13 Details and Paint"></a>
+
+    <!-- EPISODE 14 -->
+
+    <a class="episode-link c2 r4"
+
+       href="https://www.instagram.com/reel/DfUGhxmhKEz/?knvt=MWIxbzJ5ZnVtYjB3bA=="
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 14 Finishing Up and Menu Design"></a>
+
+    <!-- EPISODE 15 -->
+
+    <a class="episode-link c3 r4"
+
+       href="https://www.instagram.com/reel/DfbxDNthzwb/?knvt=MXZib250ZGhtN2FoZw=="
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 15 Final Preparations"></a>
+
+    <!-- EPISODE 16 -->
+
+    <a class="episode-link c4 r4"
+
+       href="https://www.instagram.com/reel/Df3gj8js8lt/?fqnt=MWQ1cm5wdnBvcmdtNw=="
+
+       target="_blank" rel="noopener"
+
+       aria-label="Episode 16 etos Is Now Open"></a>
+
+  </div>
+
+  <button id="backButton" class="back-button">
+
+    ← TITLE SCREEN
+
+  </button>
+
+</main>
+
+<script>
+
+const titleScreen = document.getElementById("titleScreen");
+
+const episodeScreen = document.getElementById("episodeScreen");
+
+document.getElementById("startButton").addEventListener("click", () => {
+
+  titleScreen.style.transition = "opacity 0.3s ease";
+
+  titleScreen.style.opacity = "0";
+
+  setTimeout(() => {
+
+    titleScreen.classList.add("hidden");
+
+    titleScreen.style.opacity = "1";
+
+    episodeScreen.classList.remove("hidden");
+
+    window.scrollTo(0, 0);
+
+  }, 300);
+
+});
+
+document.getElementById("backButton").addEventListener("click", () => {
+
+  episodeScreen.classList.add("hidden");
+
+  titleScreen.classList.remove("hidden");
+
+  window.scrollTo(0, 0);
+
+});
+
+</script>
+
+</body>
+
+</html>
