@@ -121,6 +121,43 @@ body {
   box-shadow: 0 2px 0 #241b17;
 
 }
+.title-art-wrap {
+
+  position: relative;
+
+  width: min(100%, 520px);
+
+}
+
+.title-art-wrap .title-art {
+
+  display: block;
+
+  width: 100%;
+
+}
+
+.artwork-link {
+
+  position: absolute;
+
+  left: 3%;
+
+  bottom: 2%;
+
+  width: 94%;
+
+  height: 10%;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  z-index: 5;
+
+}
 
 .caption {
 
@@ -262,21 +299,57 @@ body {
 
 <main id="titleScreen" class="screen">
 
-  <img
+  <div class="title-art-wrap">
 
-    class="artwork title-art"
+    <img
 
-    src="./title.PNG"
+      class="artwork title-art"
 
-    alt="The Making of etos - Hamburg Boy"
+      src="./title.PNG"
 
-  >
+      alt="The Making of etos - Hamburg Boy"
 
-  <button id="startButton" class="start-button">
+    >
 
-    ▶ WATCH THE STORY
+    <button
 
-  </button>
+      id="startButton"
+
+      class="artwork-link"
+
+      aria-label="Watch the story"
+
+    ></button>
+<button id="soundButton" style="
+
+  position:absolute;
+
+  right:0;
+
+  bottom:-42px;
+
+  z-index:9999;
+
+  padding:6px 10px;
+
+  border:2px solid #173e39;
+
+  border-radius:10px;
+
+  background:#f8edcf;
+
+  color:#173e39;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+">
+
+  ♪ SOUND OFF
+
+</button>
+  </div>
 
   <div class="caption">
 
@@ -285,6 +358,7 @@ body {
   </div>
 
 </main>
+
 
 <!-- EPISODE SELECT SCREEN -->
 
@@ -512,35 +586,7 @@ document.getElementById("backButton").addEventListener("click", () => {
 
 <audio id="etosBGM" src="etos-bgm.wav" loop preload="auto"></audio>
 
-<button id="soundButton" style="
 
-  position:fixed;
-
-  right:14px;
-
-  bottom:14px;
-
-  z-index:9999;
-
-  padding:10px 14px;
-
-  border:2px solid #173e39;
-
-  border-radius:10px;
-
-  background:#f8edcf;
-
-  color:#173e39;
-
-  font-weight:bold;
-
-  cursor:pointer;
-
-">
-
-  ♪ SOUND OFF
-
-</button>
 
 <script>
 
