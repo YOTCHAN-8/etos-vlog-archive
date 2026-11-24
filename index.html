@@ -152,7 +152,27 @@ body {
   width: min(100%, 520px);
 
 }
+  font-size: 30px;
+  z-index: 2;
+  pointer-events: none;
+  animation: sparkle 1.8s ease-in-out infinite;
+}
 
+.title-art-wrap::before {
+  top: 18%;
+  right: 12%;
+}
+
+.title-art-wrap::after {
+  top: 48%;
+  left: 5%;
+  animation-delay: 0.9s;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.7) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+}
 .title-art-wrap .title-art {
 
   display: block;
