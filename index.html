@@ -151,7 +151,11 @@ body {
 
   width: min(100%, 520px);
 
-}
+.title-art-wrap::before,
+.title-art-wrap::after {
+  content: "✦";
+  position: absolute;
+  color: #ffd52a;
   font-size: 30px;
   z-index: 2;
   pointer-events: none;
