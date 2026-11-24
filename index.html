@@ -368,6 +368,81 @@ body {
   }
 
 }
+/* Hamburg Boy body */
+
+.hamburg-boy {
+
+  position: relative;
+
+  animation: boyFloat 2.4s ease-in-out infinite;
+
+}
+
+.hb-body {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  position: relative;
+
+  z-index: 3;
+
+}
+
+/* Arms */
+
+.hb-arm {
+
+  position: absolute;
+
+  width: 100%;
+
+  height: auto;
+
+  top: 0;
+
+  left: 0;
+
+  z-index: 4;
+
+  pointer-events: none;
+
+}
+
+.hb-left {
+
+  transform-origin: 50% 50%;
+
+  animation: knifeWave 2.8s ease-in-out infinite;
+
+}
+
+.hb-right {
+
+  transform-origin: 50% 50%;
+
+  animation: forkWave 2.8s ease-in-out infinite;
+
+}
+
+@keyframes knifeWave {
+
+  0%, 100% { transform: rotate(0deg); }
+
+  50% { transform: rotate(-12deg); }
+
+}
+
+@keyframes forkWave {
+
+  0%, 100% { transform: rotate(0deg); }
+
+  50% { transform: rotate(12deg); }
+
+}
 
 </style>
 
