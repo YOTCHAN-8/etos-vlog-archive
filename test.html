@@ -179,11 +179,44 @@ animation: forkWave 2.8s ease-in-out infinite;
     filter: brightness(1);
   }
 }
+  top: 28%;
+  left: 76%;
+  animation-delay: 0.8s;
+}
+.sparkle {
+  position: absolute;
+  display: block;
+  z-index: 8;
+  color: #fff4a8;
+  font-size: clamp(18px, 3vw, 34px);
+  text-shadow: 0 0 5px #fff, 0 0 12px #ffd75e;
+  pointer-events: none;
+  animation: sparkleFlash 2.4s ease-in-out infinite;
+}
+.sparkle-three {
+  top: 38%;
+  left: 20%;
+  animation-delay: 1.6s;
+}
+
+@keyframes sparkleFlash {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3) rotate(45deg);
+  }
+}
 </style>
 </head>
 <body>
 <main class="scene">
   <img src="./etos_title_logo.png" class="title-logo" alt="The Making of etos">
+  <span class="sparkle sparkle-one">✦</span>
+<span class="sparkle sparkle-two">✦</span>
+<span class="sparkle sparkle-three">✦</span>
   <img class="layer" src="./background_cream.png" alt="">
   <img class="layer yellow" src="./mushroom_yellow.png" alt="">
   <img class="layer green" src="./mushroom_green.png" alt="">
