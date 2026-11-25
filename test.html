@@ -99,6 +99,7 @@ body {
   left: 45%;
   top: 21%;
   z-index: 5;
+animation: hamburgFloat 2.4s ease-in-out infinite;
 }
 
 .hb-body {
@@ -124,6 +125,14 @@ transform: translate(-11%, -6%);
 .hb-right {
   transform-origin: 57% 58%;
 }
+@keyframes hamburgFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}  
 </style>
 </head>
 <body>
