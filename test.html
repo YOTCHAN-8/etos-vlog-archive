@@ -93,6 +93,36 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .layer { animation: none !important; }
 }
+.hamburg-boy {
+  position: absolute;
+  width: 43%;
+  left: 45%;
+  top: 21%;
+  z-index: 5;
+}
+
+.hb-body {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hb-arm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.hb-left {
+  transform-origin: 43% 58%;
+}
+
+.hb-right {
+  transform-origin: 57% 58%;
+}
 </style>
 </head>
 <body>
@@ -104,6 +134,11 @@ body {
   <img class="layer large-red" src="./mushroom_large_red.png" alt="">
   <img class="layer blue" src="./mushroom_blue.png" alt="">
   <img class="layer grass" src="./grass_foreground.png" alt="">
+<div class="hamburg-boy">
+  <img src="./hamburg_boy_body.png" class="hb-body" alt="">
+  <img src="./hamburg_boy_left_arm_knife.png" class="hb-arm hb-left" alt="">
+  <img src="./hamburg_boy_right_arm_fork.png" class="hb-arm hb-right" alt="">
+</div>
 </main>
 </body>
 </html>
