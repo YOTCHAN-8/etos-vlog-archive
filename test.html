@@ -124,7 +124,8 @@ animation: knifeWave 2.8s ease-in-out infinite;
 }
 
 .hb-right {
-  transform-origin: 57% 58%;
+transform-origin: 57% 58%;
+animation: forkWave 2.8s ease-in-out infinite;
 }
 @keyframes hamburgFloat {
   0%, 100% {
@@ -140,6 +141,14 @@ animation: knifeWave 2.8s ease-in-out infinite;
   }
   50% {
     rotate: -7deg;
+  }
+}
+@keyframes forkWave {
+  0%, 100% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 12deg;
   }
 }
 </style>
