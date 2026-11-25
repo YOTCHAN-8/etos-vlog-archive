@@ -152,30 +152,20 @@ animation: forkWave 2.8s ease-in-out infinite;
     rotate: 12deg;
   }
 }
-.game-title {
+.title-logo {
   position: absolute;
-  top: 8%;
+  top: 4%;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  text-align: center;
-  font-family: sans-serif;
-  font-size: clamp(22px, 4vw, 48px);
-  font-weight: bold;
-  color: #147C83;
-  z-index: 10;
-}
-
-.game-title span {
-  display: block;
-  font-size: clamp(48px, 9vw, 100px);
-  color: #E85B32;
-  line-height: 1.1;
+  width: 64%;
+  height: auto;
+  z-index: 4;
 }
 </style>
 </head>
 <body>
 <main class="scene">
+  <img src="./etos_title_logo.png" class="title-logo" alt="The Making of etos">
   <img class="layer" src="./background_cream.png" alt="">
   <img class="layer yellow" src="./mushroom_yellow.png" alt="">
   <img class="layer green" src="./mushroom_green.png" alt="">
