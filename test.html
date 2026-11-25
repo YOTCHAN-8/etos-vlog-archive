@@ -118,8 +118,9 @@ animation: hamburgFloat 2.4s ease-in-out infinite;
 }
 
 .hb-left {
-  transform-origin: 43% 58%;
-transform: translate(-11%, -6%);
+transform-origin: 43% 58%;
+translate: -11% -6%;
+animation: knifeWave 2.8s ease-in-out infinite;  
 }
 
 .hb-right {
@@ -133,6 +134,14 @@ transform: translate(-11%, -6%);
     transform: translateY(-12px);
   }
 }  
+@keyframes knifeWave {
+  0%, 100% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: -7deg;
+  }
+}
 </style>
 </head>
 <body>
