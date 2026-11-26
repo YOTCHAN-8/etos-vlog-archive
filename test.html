@@ -61,7 +61,15 @@ body {
   left: -7.5%;
   animation: grassMove 3.8s ease-in-out infinite;
 }
-
+.soil-ground {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 19%;
+  object-fit: fill;
+  pointer-events: none;
+}
 @keyframes yellowMove {
   0%, 100% { transform: translateY(0) rotate(0); }
   50% { transform: translateY(-3px) rotate(-0.7deg); }
@@ -292,6 +300,7 @@ animation: forkWave 2.8s ease-in-out infinite;
 <span class="sparkle sparkle-two">✦</span>
 <span class="sparkle sparkle-three">✦</span>
  <img class="layer" src="./etos_sky.png" alt="">
+  <img src="./etos_soil_ground.png" class="soil-ground" alt="">
   <img class="layer yellow" src="./mushroom_yellow.png" alt="">
   <img class="layer green" src="./mushroom_green.png" alt="">
   <img class="layer small-red" src="./mushroom_small_red.png" alt="">
