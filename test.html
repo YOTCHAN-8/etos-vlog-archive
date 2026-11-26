@@ -328,6 +328,9 @@ animation: forkWave 2.8s ease-in-out infinite;
 }
 /* Episode links: tap area fix */
 #episodeScreen img {
+  display: block;
+  width: 100%;
+  height: auto;
   pointer-events: none;
 }
 
@@ -337,8 +340,8 @@ animation: forkWave 2.8s ease-in-out infinite;
   z-index: 10;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  background: rgba(255, 0, 0, 0.35);
-}  
+  background: transparent;
+}
 </style>
 </head>
 <body>
@@ -370,30 +373,29 @@ animation: forkWave 2.8s ease-in-out infinite;
 <div class="game-title">The Making of <span>etos</span></div>
 </main>
 <!-- EPISODE SELECT SCREEN -->
-<main id="episodeScreen" style="display:none; width:min(100%,760px); margin:0 auto; padding:12px; flex-direction:column; align-items:center;
-
-  <div style="position:relative; width:100%; line-height:0;">
+<main id="episodeScreen" style="display:none; position:relative; width:min(100%,760px); margin:0 auto; padding:12px; flex-direction:column; align-items:center;">
+ <div style="position:relative; display:block; width:100%; line-height:0;">
     <img src="./episode_new.png" alt="Episode Select" style="display:block; width:100%; height:auto;">
 
-    <a href="https://www.instagram.com/reel/DbGI_9dh37t/?fqnt=MWRueXU1bHU1YWw2bg==" target="_blank" rel="noopener" aria-label="Episode 01" style="position:absolute; left:7.6%; top:28.6%; width:20.2%; height:13.6%;
-    <a href="https://www.instagram.com/reel/DbP35GBhUeG/?jplx=MWx2bWh1ZjdiejduNw==" target="_blank" rel="noopener" aria-label="Episode 02" style="position:absolute; left:28.5%; top:28.6%; width:20.2%; height:13.6%;
-    <a href="https://www.instagram.com/reel/DcDhPL7BATP/?fqnt=OGVtbjZkdXp2NHBi" target="_blank" rel="noopener" aria-label="Episode 03" style="position:absolute; left:49.2%; top:28.6%; width:20.2%; height:13.6%;
-    <a href="https://www.instagram.com/reel/DcnpGOoBRI8/?dmpr=ZzU2ZnU3OGdpcDM2" target="_blank" rel="noopener" aria-label="Episode 04" style="position:absolute; left:69.9%; top:28.6%; width:20.2%; height:13.6%;
+    <a href="https://www.instagram.com/reel/DbGI_9dh37t/?fqnt=MWRueXU1bHU1YWw2bg==" target="_blank" rel="noopener" aria-label="Episode 01" style="position:absolute; left:7.6%; top:28.6%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DbP35GBhUeG/?jplx=MWx2bWh1ZjdiejduNw==" target="_blank" rel="noopener" aria-label="Episode 02" style="position:absolute; left:28.5%; top:28.6%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DcDhPL7BATP/?fqnt=OGVtbjZkdXp2NHBi" target="_blank" rel="noopener" aria-label="Episode 03" style="position:absolute; left:49.2%; top:28.6%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DcnpGOoBRI8/?dmpr=ZzU2ZnU3OGdpcDM2" target="_blank" rel="noopener" aria-label="Episode 04" style="position:absolute; left:69.9%; top:28.6%; width:20.2%; height:13.6%;"></a>
 
-    <a href="https://www.instagram.com/reel/Dc_Evbgh-xn/?hvrq=MXQ4Y2lnb2E5b3I1cg==" target="_blank" rel="noopener" aria-label="Episode 05" style="position:absolute; left:7.6%; top:42.3%; width:20.2%; height:13.6%;
-    <a href="https://www.instagram.com/reel/DdLkraqBi0l/?avpt=Y3FpNDhncGI2OThz" target="_blank" rel="noopener" aria-label="Episode 06" style="position:absolute; left:28.5%; top:42.3%; width:20.2%; height:13.6%;
-    <a href="https://www.instagram.com/reel/DdgbbWIBuJR/?bqrl=azJ2OWtob2tla2V1" target="_blank" rel="noopener" aria-label="Episode 07" style="position:absolute; left:49.2%; top:42.3%; width:20.2%; height:13.6%;
-    <a href="https://www.instagram.com/reel/DdnauPozLgv/?avpt=MXVncXJnenlwNWMxOA==" target="_blank" rel="noopener" aria-label="Episode 08" style="position:absolute; left:69.9%; top:42.3%; width:20.2%; height:13.6%;
+    <a href="https://www.instagram.com/reel/Dc_Evbgh-xn/?hvrq=MXQ4Y2lnb2E5b3I1cg==" target="_blank" rel="noopener" aria-label="Episode 05" style="position:absolute; left:7.6%; top:42.3%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DdLkraqBi0l/?avpt=Y3FpNDhncGI2OThz" target="_blank" rel="noopener" aria-label="Episode 06" style="position:absolute; left:28.5%; top:42.3%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DdgbbWIBuJR/?bqrl=azJ2OWtob2tla2V1" target="_blank" rel="noopener" aria-label="Episode 07" style="position:absolute; left:49.2%; top:42.3%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DdnauPozLgv/?avpt=MXVncXJnenlwNWMxOA==" target="_blank" rel="noopener" aria-label="Episode 08" style="position:absolute; left:69.9%; top:42.3%; width:20.2%; height:13.6%;"></a>
 
-    <a href="https://www.instagram.com/reel/DeEU1VIBlN7/?jplx=MXR4cWw3MGl4M3V4dw==" target="_blank" rel="noopener" aria-label="Episode 09" style="position:absolute; left:7.6%; top:56.3%; width:20.2%; height:13.6%;
-    <a href="https://www.instagram.com/reel/DeRpKEEhKZd/?lqvp=MW9kdm1xdWRnaWVseQ==" target="_blank" rel="noopener" aria-label="Episode 10" style="position:absolute; left:28.5%; top:56.3%; width:20.2%; height:13.6%;
-    <a href="https://www.instagram.com/reel/Den12k_Bz7U/?avpt=N2xnOXZ5am11cmN5" target="_blank" rel="noopener" aria-label="Episode 11" style="position:absolute; left:49.2%; top:56.3%; width:20.2%; height:13.6%;
-    <a href="https://www.instagram.com/reel/De3HeKUBZJp/?dmpr=MTExY2htN284N200cQ==" target="_blank" rel="noopener" aria-label="Episode 12" style="position:absolute; left:69.9%; top:56.3%; width:20.2%; height:13.6%;
+    <a href="https://www.instagram.com/reel/DeEU1VIBlN7/?jplx=MXR4cWw3MGl4M3V4dw==" target="_blank" rel="noopener" aria-label="Episode 09" style="position:absolute; left:7.6%; top:56.3%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DeRpKEEhKZd/?lqvp=MW9kdm1xdWRnaWVseQ==" target="_blank" rel="noopener" aria-label="Episode 10" style="position:absolute; left:28.5%; top:56.3%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/Den12k_Bz7U/?avpt=N2xnOXZ5am11cmN5" target="_blank" rel="noopener" aria-label="Episode 11" style="position:absolute; left:49.2%; top:56.3%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/De3HeKUBZJp/?dmpr=MTExY2htN284N200cQ==" target="_blank" rel="noopener" aria-label="Episode 12" style="position:absolute; left:69.9%; top:56.3%; width:20.2%; height:13.6%;"></a>
 
-    <a href="https://www.instagram.com/reel/DfCIrg8BSQP/?knvt=MWk5YWxuaW52djNvaw==" target="_blank" rel="noopener" aria-label="Episode 13" style="position:absolute; left:7.6%; top:70%; width:20.2%; height:13.6%;
-    <a href="https://www.instagram.com/reel/DfUGhxmhKEz/?knvt=MWIxbzJ5ZnVtYjB3bA==" target="_blank" rel="noopener" aria-label="Episode 14" style="position:absolute; left:28.5%; top:70%; width:20.2%; height:13.6%;
-    <a href="https://www.instagram.com/reel/DfbxDNthzwb/?knvt=MXZib250ZGhtN2FoZw==" target="_blank" rel="noopener" aria-label="Episode 15" style="position:absolute; left:49.2%; top:70%; width:20.2%; height:13.6%;
-    <a href="https://www.instagram.com/reel/Df3gj8js8lt/?fqnt=MWQ1cm5wdnBvcmdtNw==" target="_blank" rel="noopener" aria-label="Episode 16" style="position:absolute; left:69.9%; top:70%; width:20.2%; height:13.6%;
+    <a href="https://www.instagram.com/reel/DfCIrg8BSQP/?knvt=MWk5YWxuaW52djNvaw==" target="_blank" rel="noopener" aria-label="Episode 13" style="position:absolute; left:7.6%; top:70%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DfUGhxmhKEz/?knvt=MWIxbzJ5ZnVtYjB3bA==" target="_blank" rel="noopener" aria-label="Episode 14" style="position:absolute; left:28.5%; top:70%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DfbxDNthzwb/?knvt=MXZib250ZGhtN2FoZw==" target="_blank" rel="noopener" aria-label="Episode 15" style="position:absolute; left:49.2%; top:70%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/Df3gj8js8lt/?fqnt=MWQ1cm5wdnBvcmdtNw==" target="_blank" rel="noopener" aria-label="Episode 16" style="position:absolute; left:69.9%; top:70%; width:20.2%; height:13.6%;"></a>
   </div>
 
   <button onclick="returnToTitle()" style="margin-top:18px; padding:12px 22px; border:3px solid #38291f; border-radius:8px; background:#e6c58b; color:#38291f; font-weight:bold; font-size:14px; cursor:pointer;">
