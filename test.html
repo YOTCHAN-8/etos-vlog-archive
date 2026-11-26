@@ -216,7 +216,16 @@ animation: forkWave 2.8s ease-in-out infinite;
   height: auto;
   z-index: 6;
   pointer-events: none;
+  animation: sunRotate 40s linear infinite;
   image-rendering: pixelated;
+}
+  @keyframes sunRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
   .title-logo {
   position: absolute;
