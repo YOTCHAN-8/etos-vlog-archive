@@ -326,6 +326,18 @@ animation: forkWave 2.8s ease-in-out infinite;
   font-size: 14px;
   cursor: pointer;
 }
+/* Episode links: tap area fix */
+#episodeScreen img {
+  pointer-events: none;
+}
+
+#episodeScreen a {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}  
 </style>
 </head>
 <body>
