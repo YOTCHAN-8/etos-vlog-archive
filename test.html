@@ -70,6 +70,16 @@ body {
   object-fit: fill;
   pointer-events: none;
 }
+  .story-button {
+  position: absolute;
+  width: 72%;
+  height: auto;
+  left: 14%;
+  bottom: 5%;
+  z-index: 10;
+  cursor: pointer;
+  image-rendering: pixelated;
+}
 @keyframes yellowMove {
   0%, 100% { transform: translateY(0) rotate(0); }
   50% { transform: translateY(-3px) rotate(-0.7deg); }
@@ -291,6 +301,11 @@ animation: forkWave 2.8s ease-in-out infinite;
 </head>
 <body>
 <main class="scene">
+  <img
+  src="./a_clean_png_style_graphic_on_transparent_background.png"
+  class="story-button"
+  alt="WATCH THE STORY"
+>
   <img src="./sun.png" class="sky-sun" alt="">
 <img src="./cloud_large.png" class="sky-cloud cloud-large" alt="">
 <img src="./cloud_medium.png" class="sky-cloud cloud-medium" alt="">
