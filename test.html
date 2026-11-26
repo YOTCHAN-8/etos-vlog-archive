@@ -342,6 +342,15 @@ animation: forkWave 2.8s ease-in-out infinite;
   -webkit-tap-highlight-color: transparent;
   background: transparent;
 }
+/* Episode Select Hamburger Boy */
+.episode-hamburg-boy {
+  position: absolute;
+  width: 23%;
+  left: 38.5%;
+  top: 18%;
+  z-index: 5;
+  pointer-events: none;
+}  
 </style>
 </head>
 <body>
@@ -376,7 +385,11 @@ animation: forkWave 2.8s ease-in-out infinite;
 <main id="episodeScreen" style="display:none; position:relative; width:min(100%,760px); margin:0 auto; padding:12px; flex-direction:column; align-items:center;">
  <div style="position:relative; display:block; width:100%; line-height:0;">
     <img src="./episode_new.png" alt="Episode Select" style="display:block; width:100%; height:auto;">
-
+<div class="episode-hamburg-boy">
+  <img src="./hamburg_boy_body.png" class="hb-body" alt="">
+  <img src="./hamburg_boy_left_arm_knife.png" class="hb-arm hb-left" alt="">
+  <img src="./hamburg_boy_right_arm_fork.png" class="hb-arm hb-right" alt="">
+</div>
     <a href="https://www.instagram.com/reel/DbGI_9dh37t/?fqnt=MWRueXU1bHU1YWw2bg==" target="_blank" rel="noopener" aria-label="Episode 01" style="position:absolute; left:7.6%; top:28.6%; width:20.2%; height:13.6%;"></a>
     <a href="https://www.instagram.com/reel/DbP35GBhUeG/?jplx=MWx2bWh1ZjdiejduNw==" target="_blank" rel="noopener" aria-label="Episode 02" style="position:absolute; left:28.5%; top:28.6%; width:20.2%; height:13.6%;"></a>
     <a href="https://www.instagram.com/reel/DcDhPL7BATP/?fqnt=OGVtbjZkdXp2NHBi" target="_blank" rel="noopener" aria-label="Episode 03" style="position:absolute; left:49.2%; top:28.6%; width:20.2%; height:13.6%;"></a>
