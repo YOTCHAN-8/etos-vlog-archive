@@ -611,6 +611,21 @@ document.querySelectorAll('#episodeScreen a[href*="instagram.com"]').forEach(lin
     selectBgm.currentTime = 0;
   });
 });
+function resumeSelectBgm() {
+  const episodeScreen = document.getElementById("episodeScreen");
+
+  if (
+    !document.hidden &&
+    bgmEnabled &&
+    episodeScreen.style.display === "flex" &&
+    selectBgm.paused
+  ) {
+    playBgm(selectBgm);
+  }
+}
+
+document.addEventListener("visibilitychange", resumeSelectBgm);
+window.addEventListener("pageshow", resumeSelectBgm);
 </script>
 </body>
 </html>
