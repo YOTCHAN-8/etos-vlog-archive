@@ -549,10 +549,36 @@ function playBgm(audio) {
 }
 
 function returnToTitle() {
-  document.getElementById("episodeScreen").style.display = "none";
-  document.getElementById("titleScreen").style.display = "";
-  playBgm(titleBgm);
-  window.scrollTo(0, 0);
+  if (document.getElementById("screenFade")) return;
+
+  const fade = document.createElement("div");
+  fade.id = "screenFade";
+  fade.style.position = "fixed";
+  fade.style.inset = "0";
+  fade.style.background = "black";
+  fade.style.opacity = "0";
+  fade.style.zIndex = "99999";
+  fade.style.pointerEvents = "none";
+  fade.style.transition = "opacity 200ms ease";
+
+  document.body.appendChild(fade);
+
+  requestAnimationFrame(() => {
+    fade.style.opacity = "1";
+  });
+
+  setTimeout(() => {
+    document.getElementById("episodeScreen").style.display = "none";
+    document.getElementById("titleScreen").style.display = "";
+    playBgm(titleBgm);
+    window.scrollTo(0, 0);
+
+    fade.style.opacity = "0";
+
+    setTimeout(() => {
+      fade.remove();
+    }, 200);
+  }, 200);
 }
 </script>
 </body>
