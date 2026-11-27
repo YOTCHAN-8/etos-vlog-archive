@@ -457,17 +457,73 @@ animation: forkWave 2.8s ease-in-out infinite;
     ← TITLE SCREEN
   </button>
 </main>
-
+<button id="bgmToggle" onclick="toggleBgm()" style="
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  z-index: 1000;
+  width: 52px;
+  height: 52px;
+  border: 3px solid #e6ac58;
+  border-radius: 50%;
+  background: #292f4a;
+  color: #fff;
+  font-size: 23px;
+  cursor: pointer;
+">
+  🔇
+</button>
 <script>
-function showEpisodeSelect() {
+const titleBgm = new Audio("./etos-bgm.wav");
+const selectBgm = new Audio("./select_bgm.wav");
+
+titleBgm.loop = true;
+selectBgm.loop = true;
+
+titleBgm.volume = 0.25;
+selectBgm.volume = 0.25;
+
+let bgmEnabled = false;
+
+function playBgm(audio) {
+  if (!bgmEnabled) return;
+
+  titleBgm.pause();
+  selectBgm.pause();
+
+  audio.currentTime = 0;
+  audio.play().catch(error => {
+    console.log("BGM playback failed:", error);
+  });
+}
+  function toggleBgm() {
+  const button = document.getElementById("bgmToggle");
+
+  bgmEnabled = !bgmEnabled;
+
+  if (bgmEnabled) {
+    const isEpisodeScreen =
+      document.getElementById("episodeScreen").style.display === "flex";
+
+    playBgm(isEpisodeScreen ? selectBgm : titleBgm);
+    button.textContent = "🎵";
+  } else {
+    titleBgm.pause();
+    selectBgm.pause();
+    button.textContent = "🔇";
+  }
+}
+  function showEpisodeSelect() {
   document.getElementById("titleScreen").style.display = "none";
   document.getElementById("episodeScreen").style.display = "flex";
+  playBgm(selectBgm);
   window.scrollTo(0, 0);
 }
 
 function returnToTitle() {
   document.getElementById("episodeScreen").style.display = "none";
   document.getElementById("titleScreen").style.display = "";
+  playBgm(titleBgm);
   window.scrollTo(0, 0);
 }
 </script>
