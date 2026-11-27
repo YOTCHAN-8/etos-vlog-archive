@@ -605,6 +605,12 @@ function returnToTitle() {
     }, 200);
   }, 200);
 }
+document.querySelectorAll('#episodeScreen a[href*="instagram.com"]').forEach(link => {
+  link.addEventListener("click", () => {
+    selectBgm.pause();
+    selectBgm.currentTime = 0;
+  });
+});
 </script>
 </body>
 </html>
