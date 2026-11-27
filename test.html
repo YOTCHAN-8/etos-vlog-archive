@@ -624,7 +624,20 @@ function resumeSelectBgm() {
   }
 }
 
-document.addEventListener("visibilitychange", resumeSelectBgm);
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    titleBgm.pause();
+    selectBgm.pause();
+  } else {
+    resumeSelectBgm();
+  }
+});
+
+window.addEventListener("pagehide", () => {
+  titleBgm.pause();
+  selectBgm.pause();
+});
+
 window.addEventListener("pageshow", resumeSelectBgm);
 </script>
 </body>
