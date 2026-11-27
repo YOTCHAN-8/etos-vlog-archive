@@ -466,12 +466,12 @@ animation: forkWave 2.8s ease-in-out infinite;
   height: 52px;
   border: 3px solid #e6ac58;
   border-radius: 50%;
-  background: #292f4a;
-  color: #fff;
-  font-size: 23px;
+  background: #78C9B7;
+  color: #FFF1D5;
+  font-size: 27px;
   cursor: pointer;
 ">
-  🔇
+  ♪
 </button>
 <script>
 const titleBgm = new Audio("./etos-bgm.wav");
@@ -506,11 +506,11 @@ function playBgm(audio) {
       document.getElementById("episodeScreen").style.display === "flex";
 
     playBgm(isEpisodeScreen ? selectBgm : titleBgm);
-    button.textContent = "🎵";
+    button.textContent = "♪";
   } else {
     titleBgm.pause();
     selectBgm.pause();
-    button.textContent = "🔇";
+    button.textContent = "×";
   }
 }
   function showEpisodeSelect() {
