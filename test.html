@@ -540,7 +540,8 @@ function playBgm(audio) {
 }
   function showEpisodeSelect() {
   if (document.getElementById("screenFade")) return;
-
+const startButtonSe = new Audio("./start_button_se.wav");
+startButtonSe.play().catch(() => {});
   const fade = document.createElement("div");
   fade.id = "screenFade";
   fade.style.cssText = `
