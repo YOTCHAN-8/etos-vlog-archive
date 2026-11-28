@@ -1,859 +1,645 @@
 <!DOCTYPE html>
-
 <html lang="ja">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="theme-color" content="#173e39">
-
-<title>The Making of etos</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>etos Mushroom Test</title>
 <style>
-/* Hamburg Boy floating animation */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-.hamburg-boy {
-
-  animation: hamburgFloat 2.4s ease-in-out infinite;
-
-  transform-origin: center center;
-
-}
-
-@keyframes hamburgFloat {
-
-  0%, 100% {
-
-    transform: translateY(0);
-
-  }
-
-  50% {
-
-    transform: translateY(-12px);
-
-  }
-
-}
-* {
-
-  box-sizing: border-box;
-
-}
-
-html, body {
-
-  margin: 0;
-
-  min-height: 100%;
-
-  background: #173e39;
-
-  font-family: Arial, sans-serif;
-
-}
-
+* { box-sizing: border-box; }
 body {
-
+  margin: 0;
+  min-height: 100vh;
+  background: #fdf1dc;
   display: flex;
-
   justify-content: center;
-
-  min-height: 100svh;
-
-  padding: 16px 12px 28px;
-
-}
-
-.screen {
-
-  width: 100%;
-
-  display: flex;
-
-  flex-direction: column;
-
   align-items: center;
-
-  justify-content: center;
-
 }
 
-.hidden {
-
-  display: none !important;
-
-}
-
-.artwork {
-
-  display: block;
-
-  width: 100%;
-
-  height: auto;
-
-  user-select: none;
-
-  -webkit-user-drag: none;
-
-}
-
-.title-art {
-
-  width: min(100%, 520px);
-
-}
-
-.start-button {
-
-  margin-top: 18px;
-
-  width: min(90%, 360px);
-
-  min-height: 58px;
-
-  border: 4px solid #38291f;
-
-  border-radius: 12px;
-
-  background: #397b72;
-
-  color: #fff1d0;
-
-  font-size: 21px;
-
-  font-weight: 900;
-
-  letter-spacing: 3px;
-
-  box-shadow: 0 6px 0 #241b17;
-
-  cursor: pointer;
-
-  transition: transform 0.1s, box-shadow 0.1s;
-
-}
-
-.start-button:active {
-
-  transform: translateY(4px);
-
-  box-shadow: 0 2px 0 #241b17;
-
-}
-.title-art-wrap {
-
+.scene {
   position: relative;
+  width: min(100%, 1000px);
+  aspect-ratio: 1391 / 1131;
+  overflow: hidden;
+}
 
-  width: min(100%, 520px);
-
-.title-art-wrap::before,
-.title-art-wrap::after {
-  content: "✦";
+.layer {
   position: absolute;
-  color: #ffd52a;
-  font-size: 30px;
-  z-index: 2;
-  pointer-events: none;
-  animation: sparkle 1.8s ease-in-out infinite;
-}
-
-.title-art-wrap::before {
-  top: 18%;
-  right: 12%;
-}
-
-.title-art-wrap::after {
-  top: 48%;
-  left: 5%;
-  animation-delay: 0.9s;
-}
-
-@keyframes sparkle {
-  0%, 100% { opacity: 0.25; transform: scale(0.7) rotate(0deg); }
-  50% { opacity: 1; transform: scale(1.2) rotate(45deg); }
-}
-.title-art-wrap .title-art {
-
-  display: block;
-
+  inset: 0;
   width: 100%;
-
-}
-.hamburg-boy {
-
-  position: absolute;
-
-  width: 43%;
-
-  left: 45%;
-
-  top: 27%;
-
-  height: auto;
-
-  z-index: 3;
-
+  height: 100%;
+  object-fit: fill;
   pointer-events: none;
-
-  animation: boyFloat 2.4s ease-in-out infinite;
-
 }
 
-@keyframes boyFloat {
-
-  0%, 100% {
-
-    transform: translateY(0);
-
-  }
-
-  50% {
-
-    transform: translateY(-40px);
-
-  }
-
+.yellow {
+  transform-origin: 14% 72%;
+  animation: yellowMove 3.2s ease-in-out infinite;
 }
 
-.artwork-link {
+.green {
+  transform-origin: 28% 69%;
+  animation: greenMove 3.8s ease-in-out infinite;
+}
 
+.small-red {
+  transform-origin: 44% 73%;
+  animation: smallRedMove 3.4s ease-in-out infinite;
+}
+
+.large-red {
+  animation: largeRedMove 4.8s ease-in-out infinite;
+}
+
+.blue {
+  transform-origin: 86% 73%;
+  animation: blueMove 3.6s ease-in-out infinite;
+}
+
+.grass {
+  width: 115%;
+  left: -7.5%;
+  animation: grassMove 3.8s ease-in-out infinite;
+}
+.soil-ground {
   position: absolute;
-
-  left: 3%;
-
-  bottom: 2%;
-
-  width: 94%;
-
-  height: 10%;
-
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 69%;
+  object-fit: fill;
+  pointer-events: none;
+}
+  .story-button {
+  position: absolute;
+  width: 72%;
+  height: auto;
+  left: 14%;
+  bottom: -4%;
+  z-index: 10;
+  cursor: pointer;
+  image-rendering: pixelated;
+     appearance: none;
   border: none;
-
+  padding: 0;
   background: transparent;
-
-  cursor: pointer;
-
-  z-index: 5;
-
 }
-
-.caption {
-
-  color: #f5e5c4;
-
-  font-size: 11px;
-
-  letter-spacing: 3px;
-
-  margin-top: 16px;
-
-  text-align: center;
-
-}
-
-.episode-wrap {
-
-  position: relative;
-
-  width: min(100%, 760px);
-
-  line-height: 0;
-
-}
-
-.episode-art {
-
-  width: 100%;
-
-  height: auto;
-
-}
-
-.episode-link {
-
-  position: absolute;
-
+  .story-button img {
   display: block;
-
-  width: 18.8%;
-
-  height: 13.1%;
-
-  border-radius: 13%;
-
-  background: transparent;
-
-  border: 0;
-
-  cursor: pointer;
-
-  -webkit-tap-highlight-color: transparent;
-
+  width: 100%;
+  height: auto;
 }
-.episode-link {
-
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
-
+@keyframes yellowMove {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-3px) rotate(-0.7deg); }
 }
 
-.episode-link:active {
-
-  transform: scale(1.04);
-
-  border-radius: 13%;
-
-  box-shadow:
-
-    0 0 8px 4px #ffe45c,
-
-    0 0 20px 8px rgba(255, 220, 50, 0.85),
-
-    inset 0 0 0 3px #ffe45c;
-
+@keyframes greenMove {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-8px) rotate(0.8deg); }
 }
 
-.episode-link:focus-visible {
-
-  outline: 4px solid #fff2a8;
-
-  outline-offset: 2px;
-
+@keyframes smallRedMove {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-6px) rotate(-0.8deg); }
 }
 
-.c1 { left: 12.4%; }
-
-.c2 { left: 32.2%; }
-
-.c3 { left: 52.0%; }
-
-.c4 { left: 71.8%; }
-
-.r1 { top: 30.0%; }
-
-.r2 { top: 44.0%; }
-
-.r3 { top: 58.0%; }
-
-.r4 { top: 72.0%; }
-
-.back-button {
-
-  margin-top: 18px;
-
-  padding: 12px 22px;
-
-  border: 3px solid #38291f;
-
-  border-radius: 8px;
-
-  background: #e6c58b;
-
-  color: #38291f;
-
-  font-weight: bold;
-
-  font-size: 14px;
-
-  cursor: pointer;
-
+@keyframes largeRedMove {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }
 
-@media (max-width: 480px) {
-
-  body {
-
-    padding: 8px 5px 20px;
-
-  }
-
-  .start-button {
-
-    min-height: 54px;
-
-    font-size: 18px;
-
-  }
-
-  .caption {
-
-    font-size: 9px;
-
-  }
-
-  .episode-link {
-
-    height: 13.1%;
-
-  }
-
+@keyframes blueMove {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-7px) rotate(0.8deg); }
 }
-/* Hamburg Boy body */
 
+@keyframes grassMove {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer { animation: none !important; }
+}
 .hamburg-boy {
-
-position: absolute;
-  animation: boyFloat 2.4s ease-in-out infinite;
-
+  position: absolute;
+  width: 43%;
+  left: 45%;
+  top: 24%;
+  z-index: 5;
+animation: hamburgFloat 2.4s ease-in-out infinite;
+animation-delay: -0.4s;
 }
 
 .hb-body {
-
   display: block;
-
   width: 100%;
-
   height: auto;
-
-  position: relative;
-
-  z-index: 3;
-
 }
 
-/* Arms */
-
 .hb-arm {
-
   position: absolute;
-
-  width: 100%;
-
-  height: auto;
-
   top: 0;
-
   left: 0;
-
-  z-index: 4;
-
+  width: 100%;
+  height: auto;
   pointer-events: none;
-
 }
 
 .hb-left {
-left: -11%;
-  top: -9%;
-  transform-origin: 40% 80%;
-
-  animation: knifeWave 2.8s ease-in-out infinite;
-
+transform-origin: 43% 58%;
+translate: -12% -6%;
+animation: knifeWave 2.8s ease-in-out infinite;  
 }
 
 .hb-right {
-
-  transform-origin: 57% 58%;
-
-  animation: forkWave 2.8s ease-in-out infinite;
-
+transform-origin: 57% 58%;
+animation: forkWave 2.8s ease-in-out infinite;
 }
-
+@keyframes hamburgFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}  
 @keyframes knifeWave {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(-7deg); }
+  0%, 100% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: -7deg;
+  }
 }
 @keyframes forkWave {
-
-  0%, 100% { transform: rotate(0deg); }
-
-  50% { transform: rotate(12deg); }
-
+  0%, 100% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 12deg;
+  }
+}
+/* Pixel Sky Decorations */
+.sky-cloud {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  z-index: 3;
+  image-rendering: pixelated;
 }
 
-</style>
+.cloud-large {
+  top: 29%;
+  left: 2%;
+  width: 29%;
+}
 
+.cloud-medium {
+  top: 17%;
+  left: 60%;
+  width: 20%;
+}
+
+.cloud-small {
+  top: 39%;
+  left: 38%;
+  width: 13%;
+}
+
+.sky-sun {
+  position: absolute;
+  top: 14%;
+  left: 81%;
+  width: 15%;
+  height: auto;
+  z-index: 6;
+  pointer-events: none;
+  animation: sunRotate 40s linear infinite;
+  image-rendering: pixelated;
+}
+  @keyframes sunRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+  .title-logo {
+  position: absolute;
+  top: 4%;
+  left: 43%;
+  transform: translateX(-50%);
+  width: 64%;
+  height: auto;
+  z-index: 4;
+  animation: logoWave 4s ease-in-out infinite, logoShine 3s ease-in-out infinite;
+}
+  @keyframes logoWave {
+  0%, 100% { rotate: 0deg; }
+  25% { rotate: 1deg; }
+  50% { rotate: 0deg; }
+  75% { rotate: -1deg; }
+}
+  @keyframes logoShine {
+  0%, 85%, 100% {
+    filter: brightness(1);
+  }
+  90% {
+    filter: brightness(1.8);
+  }
+  95% {
+    filter: brightness(1);
+  }
+}
+  top: 28%;
+  left: 76%;
+  animation-delay: 0.8s;
+}
+.sparkle-one {
+  top: 12%;
+  left: 28%;
+}
+
+.sparkle-two {
+  top: 28%;
+  left: 76%;
+  animation-delay: 0.8s;
+}
+  .sparkle {
+  position: absolute;
+  display: block;
+  z-index: 30;
+  width: clamp(24px, 4vw, 44px);
+  height: clamp(24px, 4vw, 44px);
+  font-size: 0;
+  background: #ffdf00;
+  clip-path: polygon(
+    40% 0, 60% 0,
+    60% 32%, 68% 32%,
+    68% 40%, 100% 40%,
+    100% 60%, 68% 60%,
+    68% 68%, 60% 68%,
+    60% 100%, 40% 100%,
+    40% 68%, 32% 68%,
+    32% 60%, 0 60%,
+    0 40%, 32% 40%,
+    32% 32%, 40% 32%
+  );
+  filter:
+  drop-shadow(3px 0 #21180f)
+  drop-shadow(-3px 0 #21180f)
+  drop-shadow(0 3px #21180f)
+  drop-shadow(0 -3px #21180f);
+  pointer-events: none;
+  animation: sparkleFlash 2.4s ease-in-out infinite;
+}
+.sparkle-three {
+  top: 38%;
+  left: 20%;
+  animation-delay: 1.6s;
+}
+
+@keyframes sparkleFlash {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3) rotate(45deg);
+  }
+}
+.sparkle {
+  display: none !important;
+}
+.c1 { left: 12.4%; }
+.c2 { left: 32.2%; }
+.c3 { left: 52.0%; }
+.c4 { left: 71.8%; }
+
+.r1 { top: 30%; }
+.r2 { top: 44%; }
+.r3 { top: 58%; }
+.r4 { top: 72%; }
+
+.back-button {
+  padding: 12px 22px;
+  border: 3px solid #38291f;
+  border-radius: 8px;
+  background: #e6c58b;
+  color: #38291f;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+/* Episode links: tap area fix */
+#episodeScreen img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+#episodeScreen a {
+  display: block;
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  background: transparent;
+}
+/* Episode Select Hamburger Boy */
+.episode-hamburg-boy {
+  position: absolute;
+  width: 23%;
+  left: 38.5%;
+  top: 10%;
+  z-index: 5;
+  pointer-events: none;
+}  
+/* Episode Select Sparkles */
+.episode-sparkle {
+  position: absolute;
+  z-index: 6;
+  color: #ffe45c;
+  font-size: 26px;
+  animation: episodeSparkle 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.episode-sparkle.one {
+  left: 34%;
+  top: 17%;
+}
+
+.episode-sparkle.two {
+  left: 61%;
+  top: 20%;
+  animation-delay: 0.7s;
+}
+
+@keyframes episodeSparkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: rotate(0deg) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(180deg) scale(1.2);
+  }
+}
+  .title-footer {
+  position: absolute;
+  bottom: 1.5%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff1d5;
+  font-family: "Press Start 2P", monospace;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 1.8;
+  text-shadow: 2px 2px #59351f;
+  z-index: 20;
+  pointer-events: none;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .title-footer {
+    font-size: 6px;
+    letter-spacing: 0;
+  }
+}</style>
 </head>
-
 <body>
-
-<!-- TITLE SCREEN -->
-
-<main id="titleScreen" class="screen">
-
-  <div class="title-art-wrap">
-
-    <img
-
-      class="artwork title-art"
-
-      src="./title.PNG"
-
-      alt="The Making of etos - Hamburg Boy"
-
-    >
+<main id="titleScreen" class="scene">
+ <button class="story-button" onclick="showEpisodeSelect()">
+  <img src="./story_button.png" alt="WATCH THE STORY">
+ </button>
+  <img src="./sun.png" class="sky-sun" alt="">
+<img src="./cloud_large.png" class="sky-cloud cloud-large" alt="">
+<img src="./cloud_medium.png" class="sky-cloud cloud-medium" alt="">
+<img src="./cloud_small.png" class="sky-cloud cloud-small" alt="">
+  <img src="./etos_title_logo_clean.png" class="title-logo" alt="The Making of etos">
+  <span class="sparkle sparkle-one">✦</span>
+<span class="sparkle sparkle-two">✦</span>
+<span class="sparkle sparkle-three">✦</span>
+ <img class="layer" src="./etos_sky.png" alt="">
+  <img src="./etos_soil_ground.png" class="soil-ground" alt="">
+  <img class="layer yellow" src="./mushroom_yellow.png" alt="">
+  <img class="layer green" src="./mushroom_green.png" alt="">
+  <img class="layer small-red" src="./mushroom_small_red.png" alt="">
+  <img class="layer large-red" src="./mushroom_large_red.png" alt="">
+  <img class="layer blue" src="./mushroom_blue.png" alt="">
+  <img class="layer grass" src="./grass_foreground.png" alt="">
 <div class="hamburg-boy">
-
   <img src="./hamburg_boy_body.png" class="hb-body" alt="">
-
   <img src="./hamburg_boy_left_arm_knife.png" class="hb-arm hb-left" alt="">
-
   <img src="./hamburg_boy_right_arm_fork.png" class="hb-arm hb-right" alt="">
-
 </div>
-
-
-    <button
-
-      id="startButton"
-
-      class="artwork-link"
-
-      aria-label="Watch the story"
-
-    ></button>
-<button id="soundButton" style="
-
-  position:absolute;
-
-  right:0;
-
-  bottom:-42px;
-
-  z-index:9999;
-
-  padding:6px 10px;
-
-  border:2px solid #173e39;
-
-  border-radius:10px;
-
-  background:#f8edcf;
-
-  color:#173e39;
-
-  font-weight:bold;
-
-  cursor:pointer;
-
-">
-
-  ♪ SOUND OFF
-
-</button>
-  </div>
-
-  
+<div class="game-title">The Making of <span>etos</span></div>
+<div class="title-footer">ASHIKAGA, TOCHIGI, JAPAN&nbsp; | &nbsp;etos 2026&nbsp; | &nbsp;CREATED BY YOTCHAN</div>
 </main>
-
-
 <!-- EPISODE SELECT SCREEN -->
-
-<main id="episodeScreen" class="screen hidden">
-
-  <div class="episode-wrap">
-
-    <img
-
-      class="artwork episode-art"
-
-      src="./episode.PNG"
-
-      alt="The Making of etos - Episode Select"
-
-    >
-
-    <!-- EPISODE 01 -->
-
-    <a class="episode-link c1 r1"
-
-       href="https://www.instagram.com/reel/DbGI_9dh37t/?fqnt=MWRueXU1bHU1YWw2bg=="
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 01 A New Beginning"></a>
-
-    <!-- EPISODE 02 -->
-
-    <a class="episode-link c2 r1"
-
-       href="https://www.instagram.com/reel/DbP35GBhUeG/?jplx=MWx2bWh1ZjdiejduNw=="
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 02 Demolition"></a>
-
-    <!-- EPISODE 03 -->
-
-    <a class="episode-link c3 r1"
-
-       href="https://www.instagram.com/reel/DcDhPL7BATP/?fqnt=OGVtbjZkdXp2NHBi"
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 03 Slab Delivery"></a>
-
-    <!-- EPISODE 04 -->
-
-    <a class="episode-link c4 r1"
-
-       href="https://www.instagram.com/reel/DcnpGOoBRI8/?dmpr=ZzU2ZnU3OGdpcDM2"
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 04 Demolition and Framework"></a>
-
-    <!-- EPISODE 05 -->
-
-    <a class="episode-link c1 r2"
-
-       href="https://www.instagram.com/reel/Dc_Evbgh-xn/?hvrq=MXQ4Y2lnb2E5b3I1cg=="
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 05 Building walls and Wallpaper"></a>
-
-    <!-- EPISODE 06 -->
-
-    <a class="episode-link c2 r2"
-
-       href="https://www.instagram.com/reel/DdLkraqBi0l/?avpt=Y3FpNDhncGI2OThz"
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 06 Kitchen Wall"></a>
-
-    <!-- EPISODE 07 -->
-
-    <a class="episode-link c3 r2"
-
-       href="https://www.instagram.com/reel/DdgbbWIBuJR/?bqrl=azJ2OWtob2tla2V1"
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 07 Interior Build and Kitchen Ducts"></a>
-
-    <!-- EPISODE 08 -->
-
-    <a class="episode-link c4 r2"
-
-       href="https://www.instagram.com/reel/DdnauPozLgv/?avpt=MXVncXJnenlwNWMxOA=="
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 08 Leaving the Old Location"></a>
-
-    <!-- EPISODE 09 -->
-
-    <a class="episode-link c1 r3"
-
-       href="https://www.instagram.com/reel/DeEU1VIBlN7/?jplx=MXR4cWw3MGl4M3V4dw=="
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 09 Floor Construction"></a>
-
-    <!-- EPISODE 10 -->
-
-    <a class="episode-link c2 r3"
-
-       href="https://www.instagram.com/reel/DeRpKEEhKZd/?lqvp=MW9kdm1xdWRnaWVseQ=="
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 10 Wall Construction"></a>
-
-    <!-- EPISODE 11 -->
-
-    <a class="episode-link c3 r3"
-
-       href="https://www.instagram.com/reel/Den12k_Bz7U/?avpt=N2xnOXZ5am11cmN5"
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 11 Textured Walls"></a>
-
-    <!-- EPISODE 12 -->
-
-    <a class="episode-link c4 r3"
-
-       href="https://www.instagram.com/reel/De3HeKUBZJp/?dmpr=MTExY2htN284N200cQ=="
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 12 Staining the Wood"></a>
-
-    <!-- EPISODE 13 -->
-
-    <a class="episode-link c1 r4"
-
-       href="https://www.instagram.com/reel/DfCIrg8BSQP/?knvt=MWk5YWxuaW52djNvaw=="
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 13 Details and Paint"></a>
-
-    <!-- EPISODE 14 -->
-
-    <a class="episode-link c2 r4"
-
-       href="https://www.instagram.com/reel/DfUGhxmhKEz/?knvt=MWIxbzJ5ZnVtYjB3bA=="
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 14 Finishing Up and Menu Design"></a>
-
-    <!-- EPISODE 15 -->
-
-    <a class="episode-link c3 r4"
-
-       href="https://www.instagram.com/reel/DfbxDNthzwb/?knvt=MXZib250ZGhtN2FoZw=="
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 15 Final Preparations"></a>
-
-    <!-- EPISODE 16 -->
-
-    <a class="episode-link c4 r4"
-
-       href="https://www.instagram.com/reel/Df3gj8js8lt/?fqnt=MWQ1cm5wdnBvcmdtNw=="
-
-       target="_blank" rel="noopener"
-
-       aria-label="Episode 16 etos Is Now Open"></a>
-
+<main id="episodeScreen" style="display:none; position:relative; width:min(100%,760px); margin:0 auto; padding:12px; flex-direction:column; align-items:center;">
+ <div style="position:relative; display:block; width:100%; line-height:0;">
+    <img src="./a_crisp_pixel_art_colorful_episode_select_game_m.png" alt="Episode Select" style="display:block; width:100%; height:auto;">
+<div class="episode-hamburg-boy">
+  <img src="./hamburg_boy_body.png" class="hb-body" alt="">
+  <img src="./hamburg_boy_left_arm_knife.png" class="hb-arm hb-left" alt="">
+  <img src="./hamburg_boy_right_arm_fork.png" class="hb-arm hb-right" alt="">
+</div>
+   <span class="episode-sparkle one">✦</span>
+<span class="episode-sparkle two">✧</span>
+    <a href="https://www.instagram.com/reel/DbGI_9dh37t/?fqnt=MWRueXU1bHU1YWw2bg==" target="_blank" rel="noopener" aria-label="Episode 01" style="position:absolute; left:7.6%; top:28.6%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DbP35GBhUeG/?jplx=MWx2bWh1ZjdiejduNw==" target="_blank" rel="noopener" aria-label="Episode 02" style="position:absolute; left:28.5%; top:28.6%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DcDhPL7BATP/?fqnt=OGVtbjZkdXp2NHBi" target="_blank" rel="noopener" aria-label="Episode 03" style="position:absolute; left:49.2%; top:28.6%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DcnpGOoBRI8/?dmpr=ZzU2ZnU3OGdpcDM2" target="_blank" rel="noopener" aria-label="Episode 04" style="position:absolute; left:69.9%; top:28.6%; width:20.2%; height:13.6%;"></a>
+
+    <a href="https://www.instagram.com/reel/Dc_Evbgh-xn/?hvrq=MXQ4Y2lnb2E5b3I1cg==" target="_blank" rel="noopener" aria-label="Episode 05" style="position:absolute; left:7.6%; top:42.3%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DdLkraqBi0l/?avpt=Y3FpNDhncGI2OThz" target="_blank" rel="noopener" aria-label="Episode 06" style="position:absolute; left:28.5%; top:42.3%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DdgbbWIBuJR/?bqrl=azJ2OWtob2tla2V1" target="_blank" rel="noopener" aria-label="Episode 07" style="position:absolute; left:49.2%; top:42.3%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DdnauPozLgv/?avpt=MXVncXJnenlwNWMxOA==" target="_blank" rel="noopener" aria-label="Episode 08" style="position:absolute; left:69.9%; top:42.3%; width:20.2%; height:13.6%;"></a>
+
+    <a href="https://www.instagram.com/reel/DeEU1VIBlN7/?jplx=MXR4cWw3MGl4M3V4dw==" target="_blank" rel="noopener" aria-label="Episode 09" style="position:absolute; left:7.6%; top:56.3%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DeRpKEEhKZd/?lqvp=MW9kdm1xdWRnaWVseQ==" target="_blank" rel="noopener" aria-label="Episode 10" style="position:absolute; left:28.5%; top:56.3%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/Den12k_Bz7U/?avpt=N2xnOXZ5am11cmN5" target="_blank" rel="noopener" aria-label="Episode 11" style="position:absolute; left:49.2%; top:56.3%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/De3HeKUBZJp/?dmpr=MTExY2htN284N200cQ==" target="_blank" rel="noopener" aria-label="Episode 12" style="position:absolute; left:69.9%; top:56.3%; width:20.2%; height:13.6%;"></a>
+
+    <a href="https://www.instagram.com/reel/DfCIrg8BSQP/?knvt=MWk5YWxuaW52djNvaw==" target="_blank" rel="noopener" aria-label="Episode 13" style="position:absolute; left:7.6%; top:70%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DfUGhxmhKEz/?knvt=MWIxbzJ5ZnVtYjB3bA==" target="_blank" rel="noopener" aria-label="Episode 14" style="position:absolute; left:28.5%; top:70%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/DfbxDNthzwb/?knvt=MXZib250ZGhtN2FoZw==" target="_blank" rel="noopener" aria-label="Episode 15" style="position:absolute; left:49.2%; top:70%; width:20.2%; height:13.6%;"></a>
+    <a href="https://www.instagram.com/reel/Df3gj8js8lt/?fqnt=MWQ1cm5wdnBvcmdtNw==" target="_blank" rel="noopener" aria-label="Episode 16" style="position:absolute; left:69.9%; top:70%; width:20.2%; height:13.6%;"></a>
   </div>
 
-  <button id="backButton" class="back-button">
-
+  <button onclick="returnToTitle()" style="margin-top:18px; padding:12px 22px; border:3px solid #38291f; border-radius:8px; background:#e6c58b; color:#38291f; font-weight:bold; font-size:14px; cursor:pointer;">
     ← TITLE SCREEN
-
   </button>
-
 </main>
-
+<button id="bgmToggle" onclick="toggleBgm()" style="
+  position: fixed;
+  right: 20px;
+  bottom: 105px;
+  z-index: 1000;
+  width: 52px;
+  height: 52px;
+  border: 3px solid #e6ac58;
+  border-radius: 50%;
+  background: #159B9B;
+  color: #FFF1D5;
+  font-size: 27px;
+  cursor: pointer;
+">
+  ♪
+</button>
 <script>
+const titleBgm = new Audio("./etos-bgm.wav");
+const selectBgm = new Audio("./select_bgm.wav");
 
-const titleScreen = document.getElementById("titleScreen");
+titleBgm.loop = true;
+selectBgm.loop = true;
 
-const episodeScreen = document.getElementById("episodeScreen");
+titleBgm.volume = 0.25;
+selectBgm.volume = 0.25;
 
-document.getElementById("startButton").addEventListener("click", () => {
+let bgmEnabled = false;
 
-  titleScreen.style.transition = "opacity 0.3s ease";
+function playBgm(audio) {
+  if (!bgmEnabled) return;
 
-  titleScreen.style.opacity = "0";
+  titleBgm.pause();
+  selectBgm.pause();
+
+  audio.currentTime = 0;
+  audio.play().catch(error => {
+    console.log("BGM playback failed:", error);
+  });
+}
+  function toggleBgm() {
+  const button = document.getElementById("bgmToggle");
+
+  bgmEnabled = !bgmEnabled;
+
+  if (bgmEnabled) {
+    const isEpisodeScreen =
+      document.getElementById("episodeScreen").style.display === "flex";
+
+    playBgm(isEpisodeScreen ? selectBgm : titleBgm);
+    button.textContent = "♪";
+  } else {
+    titleBgm.pause();
+    selectBgm.pause();
+    button.textContent = "×";
+  }
+}
+  function showEpisodeSelect() {
+  if (document.getElementById("screenFade")) return;
+const startButtonSe = new Audio("./start_button_se.wav");
+startButtonSe.play().catch(() => {});
+  const fade = document.createElement("div");
+  fade.id = "screenFade";
+  fade.style.cssText = `
+    position: fixed;
+    inset: 0;
+    background: black;
+    opacity: 0;
+    z-index: 99999;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+  `;
+
+  document.body.appendChild(fade);
+
+  requestAnimationFrame(() => {
+    fade.style.opacity = "1";
+  });
 
   setTimeout(() => {
-
-    titleScreen.classList.add("hidden");
-
-    titleScreen.style.opacity = "1";
-
-    episodeScreen.classList.remove("hidden");
-
+    document.getElementById("titleScreen").style.display = "none";
+    document.getElementById("episodeScreen").style.display = "flex";
+    playBgm(selectBgm);
     window.scrollTo(0, 0);
 
-  }, 300);
+    fade.style.opacity = "0";
 
-});
-
-document.getElementById("backButton").addEventListener("click", () => {
-
-  episodeScreen.classList.add("hidden");
-
-  titleScreen.classList.remove("hidden");
-
-  window.scrollTo(0, 0);
-
-});
-
-</script>
-
-<audio id="etosBGM" src="etos-bgm.wav" loop preload="auto"></audio>
-
-
-
-<script>
-
-const bgm = document.getElementById("etosBGM");
-
-const soundButton = document.getElementById("soundButton");
-
-let soundStarted = false;
-
-async function startBGM() {
-
-  if (soundStarted) return;
-
-  try {
-
-    bgm.volume = 0.25;
-
-    await bgm.play();
-
-    soundStarted = true;
-
-    soundButton.textContent = "♪ SOUND ON";
-
-  } catch (error) {
-
-    console.log("BGM playback requires user interaction.");
-
-  }
-
+    setTimeout(() => {
+      fade.remove();
+    }, 200);
+  }, 200);
 }
 
-document.addEventListener("pointerdown", (event) => {
+function returnToTitle() {
+  if (document.getElementById("screenFade")) return;
 
-  if (!event.target.closest("#soundButton")) {
+  const fade = document.createElement("div");
+  fade.id = "screenFade";
+  fade.style.position = "fixed";
+  fade.style.inset = "0";
+  fade.style.background = "black";
+  fade.style.opacity = "0";
+  fade.style.zIndex = "99999";
+  fade.style.pointerEvents = "none";
+  fade.style.transition = "opacity 200ms ease";
 
-    startBGM();
+  document.body.appendChild(fade);
 
-  }
+  requestAnimationFrame(() => {
+    fade.style.opacity = "1";
+  });
 
-}, { once: true });
+  setTimeout(() => {
+    document.getElementById("episodeScreen").style.display = "none";
+    document.getElementById("titleScreen").style.display = "";
+    playBgm(titleBgm);
+    window.scrollTo(0, 0);
 
+    fade.style.opacity = "0";
 
-soundButton.addEventListener("click", async (event) => {
-
-  event.stopPropagation();
-
-  if (bgm.paused) {
-
-    try {
-
-      bgm.volume = 0.25;
-
-      await bgm.play();
-
-      soundStarted = true;
-
-      soundButton.textContent = "♪ SOUND ON";
-
-    } catch (error) {
-
-      console.log(error);
-
-    }
-
-  } else {
-
-    bgm.pause();
-
-    soundButton.textContent = "♪ SOUND OFF";
-
-  }
-
+    setTimeout(() => {
+      fade.remove();
+    }, 200);
+  }, 200);
+}
+document.querySelectorAll('#episodeScreen a[href*="instagram.com"]').forEach(link => {
+  link.addEventListener("click", () => {
+    selectBgm.pause();
+    selectBgm.currentTime = 0;
+  });
 });
+function resumeSelectBgm() {
+  const episodeScreen = document.getElementById("episodeScreen");
+
+  if (
+    !document.hidden &&
+    bgmEnabled &&
+    episodeScreen.style.display === "flex" &&
+    selectBgm.paused
+  ) {
+    playBgm(selectBgm);
+  }
+}
 
 document.addEventListener("visibilitychange", () => {
-
   if (document.hidden) {
-
-    bgm.pause();
-
-    soundButton.textContent = "♪ SOUND OFF";
-
+    titleBgm.pause();
+    selectBgm.pause();
+  } else {
+    resumeSelectBgm();
   }
-
 });
 
+window.addEventListener("pagehide", () => {
+  titleBgm.pause();
+  selectBgm.pause();
+});
+
+window.addEventListener("pageshow", resumeSelectBgm);
 </script>
 </body>
-
 </html>
